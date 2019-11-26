@@ -9,7 +9,6 @@ hammer_users = dict()
 def init_locks(i):
     for j in range(i):
         hammer_no = j+1
-        print('初始化%d号锁'%hammer_no)
         lock = threading.Lock()
         locks.append(lock)
 
@@ -34,7 +33,6 @@ def demo():
     hammer_num = 3
     worker_num = 5
     init_locks(hammer_num)
-    print('初始化锁结束')
     threads = list()
     for i in range(worker_num): 
         threads.append(threading.Thread(target=us_hammer, args=(i,hammer_num)))
